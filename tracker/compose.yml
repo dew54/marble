@@ -1,0 +1,13 @@
+version: '3'
+services:
+  ros2-server:
+    image: dew54/ros2-server:base
+    command: bash -c "source /opt/ros/humble/setup.bash  && cd /root/ros2_ws && source install/setup.bash && ros2 launch grpc_ros_adapter ros2_server_launch.py"
+
+  ros2-counter:
+    image: dew54/ros2-counter:node
+    command: bash -c "source /opt/ros/humble/setup.bash && source install/setup.bash && ros2 run counter node"
+
+  ros2-tracker:
+    image: dew54/ros2-tracker:node
+    command: bash -c "source /opt/ros/humble/setup.bash && source install/setup.bash && ros2 run tracker node"
